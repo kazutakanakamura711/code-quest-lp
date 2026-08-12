@@ -11,24 +11,21 @@ export const features = [
     number: '01',
     label: 'PLAY FIRST',
     title: '夢中になれるから、続けられる。',
-    description:
-      'まずは遊ぶ。ゲームや作品づくりから自然に学習へつなげます。楽しいから続けられる。',
+    description: 'まずは遊ぶ。ゲームや作品づくりから自然に学習へつなげます。楽しいから続けられる。',
     tone: 'blue',
   },
   {
     number: '02',
     label: 'CREATE',
     title: '自分のアイデアを、カタチに。',
-    description:
-      '自分で考え、自分でつくる。正解のない問題に挑戦することで、創造力が育ちます。',
+    description: '自分で考え、自分でつくる。正解のない問題に挑戦することで、創造力が育ちます。',
     tone: 'purple',
   },
   {
     number: '03',
     label: 'GROW',
     title: '失敗も、成長のチャンス。',
-    description:
-      '成功も失敗も楽しみながら、論理的思考と問題解決力を自然に身につけます。',
+    description: '成功も失敗も楽しみながら、論理的思考と問題解決力を自然に身につけます。',
     tone: 'orange',
   },
 ] as const
@@ -91,9 +88,24 @@ export const journey = [
 
 export const works = [
   { title: 'オリジナル迷路ゲーム', author: 'たろうくん（小4）', course: 'Scratch', type: 'maze' },
-  { title: 'Minecraftの未来都市', author: 'はなちゃん（小5）', course: 'Minecraft Education', type: 'city' },
-  { title: '自分のプロフィールサイト', author: 'りくくん（小6）', course: 'Web Creator', type: 'web' },
-  { title: 'Robloxミニゲーム', author: 'さくらちゃん（小5）', course: 'Roblox Creator', type: 'game' },
+  {
+    title: 'Minecraftの未来都市',
+    author: 'はなちゃん（小5）',
+    course: 'Minecraft Education',
+    type: 'city',
+  },
+  {
+    title: '自分のプロフィールサイト',
+    author: 'りくくん（小6）',
+    course: 'Web Creator',
+    type: 'web',
+  },
+  {
+    title: 'Robloxミニゲーム',
+    author: 'さくらちゃん（小5）',
+    course: 'Roblox Creator',
+    type: 'game',
+  },
 ] as const
 
 export const supportPoints = [
@@ -110,7 +122,13 @@ export const prices = [
     title: '月4回コース',
     price: '9,800',
     featured: false,
-    items: ['月4回（週1回）', '1回60分', '少人数制（最大8名）', 'オリジナル教材付き', 'オンライン授業OK'],
+    items: [
+      '月4回（週1回）',
+      '1回60分',
+      '少人数制（最大8名）',
+      'オリジナル教材付き',
+      'オンライン授業OK',
+    ],
   },
   {
     title: '月8回コース',

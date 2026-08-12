@@ -15,15 +15,29 @@ const FloatingShape = ({ className, delay = 0 }: { className: string; delay?: nu
 }
 
 export const Hero = () => (
-  <section className="hero-grid relative overflow-hidden pb-20 pt-12 tablet:pb-28 tablet:pt-20" id="top">
+  <section
+    className="hero-grid relative overflow-hidden pb-20 pt-12 tablet:pb-28 tablet:pt-20"
+    id="top"
+  >
     <FloatingShape className="absolute left-[6%] top-28 size-5 rotate-12 rounded-md bg-brand-yellow/80" />
-    <FloatingShape className="absolute right-[8%] top-32 size-6 rounded-full border-[5px] border-brand-purple/50" delay={0.5} />
-    <FloatingShape className="absolute bottom-14 left-[44%] size-5 rotate-45 bg-brand-mint/80" delay={1} />
+    <FloatingShape
+      className="absolute right-[8%] top-32 size-6 rounded-full border-[5px] border-brand-purple/50"
+      delay={0.5}
+    />
+    <FloatingShape
+      className="absolute bottom-14 left-[44%] size-5 rotate-45 bg-brand-mint/80"
+      delay={1}
+    />
 
     <div className="page-container grid items-center gap-14 desktop:grid-cols-[1.04fr_0.96fr] desktop:gap-16">
       <div className="relative z-10 text-center desktop:text-left">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/90 px-4 py-2 text-sm font-bold text-brand-blue shadow-sm">
-          <Sparkles aria-hidden="true" className="text-brand-yellow" fill="currentColor" size={16} />
+          <Sparkles
+            aria-hidden="true"
+            className="text-brand-yellow"
+            fill="currentColor"
+            size={16}
+          />
           小学1年生〜6年生対象
         </div>
         <h1 className="font-heading text-[clamp(2.7rem,7vw,5.35rem)] font-bold leading-[1.06] tracking-[-0.045em] text-ink">

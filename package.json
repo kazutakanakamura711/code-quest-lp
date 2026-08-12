@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "npm@11.6.2",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -11,7 +12,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fontsource-variable/exo-2": "latest",
@@ -37,11 +42,21 @@
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
+    "husky": "^9.1.7",
     "jsdom": "^27.3.0",
+    "lint-staged": "^17.3.0",
+    "prettier": "^3.9.0",
     "tailwindcss": "latest",
     "typescript": "latest",
     "typescript-eslint": "latest",
     "vite": "latest",
     "vitest": "latest"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{css,json,md,html}": "prettier --write"
   }
 }

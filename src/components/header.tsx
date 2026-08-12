@@ -68,7 +68,10 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
           ))}
         </nav>
 
-        <a className="button-primary hidden shrink-0 px-5 py-3 text-sm desktop:inline-flex" href="#trial">
+        <a
+          className="button-primary hidden shrink-0 px-5 py-3 text-sm desktop:inline-flex"
+          href="#trial"
+        >
           無料体験はこちら
           <Rocket aria-hidden="true" size={16} />
         </a>
@@ -106,7 +109,12 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
           >
             <div className="mb-10 flex items-center justify-between">
               <Logo />
-              <button aria-label="メニューを閉じる" className="icon-button" onClick={handleLinkClick} type="button">
+              <button
+                aria-label="メニューを閉じる"
+                className="icon-button"
+                onClick={handleLinkClick}
+                type="button"
+              >
                 <X aria-hidden="true" size={22} />
               </button>
             </div>
@@ -125,7 +133,11 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
                 </a>
               ))}
             </nav>
-            <a className="button-primary mt-auto w-full py-4" href="#trial" onClick={handleLinkClick}>
+            <a
+              className="button-primary mt-auto w-full py-4"
+              href="#trial"
+              onClick={handleLinkClick}
+            >
               無料体験はこちら
               <Rocket aria-hidden="true" size={18} />
             </a>

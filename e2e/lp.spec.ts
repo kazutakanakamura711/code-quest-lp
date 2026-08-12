@@ -22,7 +22,9 @@ test('renders responsively without horizontal overflow', async ({ page }, testIn
   await faqButton.click()
   await expect(faqButton).toHaveAttribute('aria-expanded', 'true')
 
-  const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)
+  const hasOverflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > window.innerWidth + 1,
+  )
   expect(hasOverflow).toBe(false)
   expect(consoleErrors).toEqual([])
 

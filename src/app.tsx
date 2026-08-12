@@ -56,7 +56,12 @@ const courseIcons = {
 const journeyIcons = [Play, Lightbulb, Code2, Share2, Trophy] as const
 const journeyColors = ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ea580c'] as const
 const journeyTextColors = ['#1d4ed8', '#6d28d9', '#047857', '#a16207', '#c2410c'] as const
-const workImages = ['/images/work-maze.jpg', '/images/work-city.jpg', '/images/work-web.jpg', '/images/work-roblox.jpg'] as const
+const workImages = [
+  '/images/work-maze.jpg',
+  '/images/work-city.jpg',
+  '/images/work-web.jpg',
+  '/images/work-roblox.jpg',
+] as const
 const skillImages = [
   '/images/skill-logic.jpg',
   '/images/skill-solve.jpg',
@@ -64,26 +69,37 @@ const skillImages = [
   '/images/skill-present.jpg',
   '/images/skill-explore.jpg',
 ] as const
-const skillDescriptions = ['順序立てて考える力', 'エラーを自分で直す力', 'ゼロから作り出す力', '作品を人に伝える力', '自分で調べて学ぶ力'] as const
+const skillDescriptions = [
+  '順序立てて考える力',
+  'エラーを自分で直す力',
+  'ゼロから作り出す力',
+  '作品を人に伝える力',
+  '自分で調べて学ぶ力',
+] as const
 
 const SectionHeading = ({
   eyebrow,
   title,
   accent,
   description,
+  breakBeforeAccent = false,
 }: {
   eyebrow: string
   title: string
   accent: string
   description?: string
+  breakBeforeAccent?: boolean
 }) => (
   <Reveal className="mx-auto mb-12 max-w-3xl text-center tablet:mb-16">
     <p className="section-eyebrow">{eyebrow}</p>
     <h2 className="section-title">
       {title}
+      {breakBeforeAccent ? <br /> : null}
       <span className="gradient-text">{accent}</span>
     </h2>
-    {description ? <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-500">{description}</p> : null}
+    {description ? (
+      <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-500">{description}</p>
+    ) : null}
   </Reveal>
 )
 
@@ -91,11 +107,20 @@ const Marquee = () => (
   <div aria-label="学べる内容" className="overflow-hidden border-y border-indigo-100 bg-white py-4">
     <div className="marquee-track flex w-max items-center">
       {[...marqueeItems, ...marqueeItems].map((item, index) => (
-        <div aria-hidden={index >= marqueeItems.length} className="flex items-center" key={`${item}-${index}`}>
+        <div
+          aria-hidden={index >= marqueeItems.length}
+          className="flex items-center"
+          key={`${item}-${index}`}
+        >
           <span className="whitespace-nowrap px-6 font-tech text-sm font-bold uppercase tracking-wider text-slate-600 tablet:px-9">
             {item}
           </span>
-          <Sparkles aria-hidden="true" className="text-brand-yellow" fill="currentColor" size={14} />
+          <Sparkles
+            aria-hidden="true"
+            className="text-brand-yellow"
+            fill="currentColor"
+            size={14}
+          />
         </div>
       ))}
     </div>
@@ -105,7 +130,12 @@ const Marquee = () => (
 const WhySection = () => (
   <section className="section-space overflow-hidden bg-white" id="about">
     <div className="page-container">
-      <SectionHeading accent="夢中になれる。" eyebrow="WHY CODE QUEST" title="「勉強」じゃないから、" />
+      <SectionHeading
+        accent="夢中になれる。"
+        breakBeforeAccent
+        eyebrow="WHY CODE QUEST"
+        title="「勉強」じゃないから、"
+      />
       <div className="grid gap-6 tablet:grid-cols-3">
         {features.map((feature, index) => (
           <Reveal className="h-full" delay={index * 0.08} key={feature.number}>
@@ -124,7 +154,9 @@ const WhySection = () => (
                 </span>
               </div>
               <div className="px-1 pb-1 pt-6">
-                <h3 className="font-tech text-xl font-bold tracking-wide text-ink">{feature.label}</h3>
+                <h3 className="font-tech text-xl font-bold tracking-wide text-ink">
+                  {feature.label}
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
               </div>
             </article>
@@ -138,18 +170,32 @@ const WhySection = () => (
 const CoursesSection = () => (
   <section className="section-space bg-blue-mist" id="courses">
     <div className="page-container">
-      <SectionHeading accent="5つのコース。" eyebrow="COURSES" title="好きから選べる、" />
+      <SectionHeading
+        accent="5つのコース。"
+        breakBeforeAccent
+        eyebrow="COURSES"
+        title="好きから選べる、"
+      />
       <div className="grid gap-5 tablet:grid-cols-2 desktop:grid-cols-3">
         {courses.map((course, index) => {
           const Icon = courseIcons[course.icon]
           return (
             <Reveal className="h-full" delay={(index % 3) * 0.06} key={course.title}>
-              <article className="course-card h-full" style={{ '--course-accent': course.accent } as CSSProperties}>
+              <article
+                className="course-card h-full"
+                style={{ '--course-accent': course.accent } as CSSProperties}
+              >
                 <div className="mb-5 flex items-start justify-between gap-3">
-                  <span className="grid size-14 place-items-center rounded-2xl text-white shadow-lg" style={{ background: course.accent }}>
+                  <span
+                    className="grid size-14 place-items-center rounded-2xl text-white shadow-lg"
+                    style={{ background: course.accent }}
+                  >
                     <Icon aria-hidden="true" size={26} />
                   </span>
-                  <span className="rounded-full px-3 py-1.5 font-tech text-[0.65rem] font-bold tracking-wider" style={{ background: course.surface, color: course.accent }}>
+                  <span
+                    className="rounded-full px-3 py-1.5 font-tech text-[0.65rem] font-bold tracking-wider"
+                    style={{ background: course.surface, color: course.accent }}
+                  >
                     {course.eyebrow}
                   </span>
                 </div>
@@ -157,7 +203,10 @@ const CoursesSection = () => (
                 <p className="mt-3 text-sm leading-6 text-slate-500">{course.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {course.tags.map((tag) => (
-                    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600" key={tag}>
+                    <span
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600"
+                      key={tag}
+                    >
                       {tag}
                     </span>
                   ))}
@@ -187,9 +236,16 @@ const CoursesSection = () => (
 const JourneySection = () => (
   <section className="section-space overflow-hidden bg-white" id="learning">
     <div className="page-container">
-      <SectionHeading accent="CODE QUESTの学び方。" eyebrow="LEARNING JOURNEY" title="できた！が増える、" />
+      <SectionHeading
+        accent="CODE QUESTの学び方。"
+        eyebrow="LEARNING JOURNEY"
+        title="できた！が増える、"
+      />
       <div className="relative">
-        <div aria-hidden="true" className="absolute left-[10%] right-[10%] top-12 hidden border-t-2 border-dashed border-indigo-200 tablet:block" />
+        <div
+          aria-hidden="true"
+          className="absolute left-[10%] right-[10%] top-12 hidden border-t-2 border-dashed border-indigo-200 tablet:block"
+        />
         <ol className="relative grid gap-4 tablet:grid-cols-5 tablet:gap-0">
           {journey.map((item, index) => {
             const Icon = journeyIcons[index]
@@ -199,16 +255,24 @@ const JourneySection = () => (
               <li className="relative" key={item.step}>
                 <Reveal className="h-full" delay={index * 0.08}>
                   <div className="flex h-full items-center gap-4 rounded-[24px] border border-indigo-100 bg-white p-4 text-left shadow-sm tablet:flex-col tablet:border-0 tablet:bg-transparent tablet:px-2 tablet:text-center tablet:shadow-none">
-                <span className="relative z-10 grid size-20 shrink-0 place-items-center rounded-full border-[7px] border-white text-white shadow-lg" style={{ background: color }}>
-                  <Icon aria-hidden="true" size={26} />
-                </span>
-                <div>
-                  <p className="font-tech text-[0.65rem] font-bold tracking-wider text-slate-400">STEP {item.step}</p>
-                  <h3 className="font-tech text-base font-bold tracking-wide" style={{ color: textColor }}>
-                    {item.label}
-                  </h3>
-                  <p className="mt-1 text-xs leading-5 text-slate-500">{item.text}</p>
-                </div>
+                    <span
+                      className="relative z-10 grid size-20 shrink-0 place-items-center rounded-full border-[7px] border-white text-white shadow-lg"
+                      style={{ background: color }}
+                    >
+                      <Icon aria-hidden="true" size={26} />
+                    </span>
+                    <div>
+                      <p className="font-tech text-[0.65rem] font-bold tracking-wider text-slate-400">
+                        STEP {item.step}
+                      </p>
+                      <h3
+                        className="font-tech text-base font-bold tracking-wide"
+                        style={{ color: textColor }}
+                      >
+                        {item.label}
+                      </h3>
+                      <p className="mt-1 text-xs leading-5 text-slate-500">{item.text}</p>
+                    </div>
                   </div>
                 </Reveal>
               </li>
@@ -293,10 +357,16 @@ const ParentsSection = () => (
       </Reveal>
       <div className="grid grid-cols-2 gap-3 tablet:gap-4">
         {skills.map((skill, index) => (
-          <Reveal className={index === 4 ? 'col-span-2 tablet:col-span-1' : ''} delay={index * 0.05} key={skill}>
+          <Reveal
+            className={index === 4 ? 'col-span-2 tablet:col-span-1' : ''}
+            delay={index * 0.05}
+            key={skill}
+          >
             <article
               className="min-h-40 overflow-hidden rounded-[24px] border border-slate-200 bg-white bg-cover bg-right p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-              style={{ backgroundImage: `linear-gradient(90deg, rgba(255,255,255,.98), rgba(255,255,255,.9) 58%, rgba(255,255,255,.18)), url(${skillImages[index]})` }}
+              style={{
+                backgroundImage: `linear-gradient(90deg, rgba(255,255,255,.98), rgba(255,255,255,.9) 58%, rgba(255,255,255,.18)), url(${skillImages[index]})`,
+              }}
             >
               <span className="inline-flex min-w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-purple px-2 py-2 font-tech text-xs font-bold text-white">
                 0{index + 1}
@@ -314,11 +384,18 @@ const ParentsSection = () => (
 const PricingSection = () => (
   <section className="section-space bg-white" id="pricing">
     <div className="page-container">
-      <SectionHeading accent="料金。" description="入会金 11,000円（初回のみ）・無料体験あり" eyebrow="COURSE & PRICE" title="わかりやすい、" />
+      <SectionHeading
+        accent="料金。"
+        description="入会金 11,000円（初回のみ）・無料体験あり"
+        eyebrow="COURSE & PRICE"
+        title="わかりやすい、"
+      />
       <div className="mx-auto grid max-w-4xl gap-6 tablet:grid-cols-2">
         {prices.map((price, index) => (
           <Reveal className="h-full" delay={index * 0.08} key={price.title}>
-            <article className={`relative h-full rounded-[30px] p-7 tablet:p-9 ${price.featured ? 'border-2 border-brand-purple bg-indigo-50 shadow-[0_24px_70px_rgba(91,82,242,.2)]' : 'border-2 border-slate-200 bg-white shadow-lg'}`}>
+            <article
+              className={`relative h-full rounded-[30px] p-7 tablet:p-9 ${price.featured ? 'border-2 border-brand-purple bg-indigo-50 shadow-[0_24px_70px_rgba(91,82,242,.2)]' : 'border-2 border-slate-200 bg-white shadow-lg'}`}
+            >
               {price.featured ? (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-blue to-brand-purple px-5 py-2 font-tech text-xs font-bold text-white shadow-md">
                   人気！
@@ -333,12 +410,24 @@ const PricingSection = () => (
               <ul className="mt-7 space-y-3 border-t border-slate-200 pt-7">
                 {price.items.map((item) => (
                   <li className="flex items-center gap-3 text-sm text-slate-600" key={item}>
-                    <Check aria-hidden="true" className="text-emerald-500" size={17} strokeWidth={3} />
+                    <Check
+                      aria-hidden="true"
+                      className="text-emerald-500"
+                      size={17}
+                      strokeWidth={3}
+                    />
                     {item}
                   </li>
                 ))}
               </ul>
-              <a className={price.featured ? 'button-primary mt-8 w-full py-4' : 'button-secondary mt-8 w-full py-4'} href="#trial">
+              <a
+                className={
+                  price.featured
+                    ? 'button-primary mt-8 w-full py-4'
+                    : 'button-secondary mt-8 w-full py-4'
+                }
+                href="#trial"
+              >
                 無料体験で試す
                 <ArrowRight aria-hidden="true" size={17} />
               </a>
@@ -370,7 +459,11 @@ const FaqItem = ({ faq, index }: { faq: (typeof faqs)[number]; index: number }) 
               <span className="font-tech font-bold text-brand-blue">Q</span>
               {faq.question}
             </span>
-            <ChevronDown aria-hidden="true" className={`shrink-0 text-brand-blue transition-transform ${isOpen ? 'rotate-180' : ''}`} size={20} />
+            <ChevronDown
+              aria-hidden="true"
+              className={`shrink-0 text-brand-blue transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              size={20}
+            />
           </button>
         </h3>
         <div className={`faq-panel ${isOpen ? 'faq-panel-open' : ''}`} id={id}>
@@ -405,8 +498,14 @@ const TrialSection = () => {
     <section className="overflow-hidden bg-white px-4 py-14 tablet:px-6 tablet:py-24" id="trial">
       <Reveal className="mx-auto max-w-6xl">
         <div className="trial-panel relative overflow-hidden rounded-[36px] px-6 py-14 text-center text-white tablet:px-12 tablet:py-20">
-          <span aria-hidden="true" className="absolute -left-10 -top-12 size-40 rounded-full border-[28px] border-white/10" />
-          <span aria-hidden="true" className="absolute -bottom-16 -right-8 size-52 rotate-12 rounded-[50px] bg-brand-yellow/20" />
+          <span
+            aria-hidden="true"
+            className="absolute -left-10 -top-12 size-40 rounded-full border-[28px] border-white/10"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute -bottom-16 -right-8 size-52 rotate-12 rounded-[50px] bg-brand-yellow/20"
+          />
           <div className="relative z-10">
             <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 font-tech text-xs font-bold tracking-wide">
               <Sparkles aria-hidden="true" size={15} />
@@ -424,9 +523,14 @@ const TrialSection = () => {
               無料体験を申し込む
               <Rocket aria-hidden="true" size={19} />
             </button>
-            <p className="mt-5 text-xs font-medium text-indigo-100">所要時間 60分 · 保護者の同席歓迎</p>
+            <p className="mt-5 text-xs font-medium text-indigo-100">
+              所要時間 60分 · 保護者の同席歓迎
+            </p>
             {showNotice ? (
-              <p aria-live="polite" className="mx-auto mt-5 max-w-xl rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm">
+              <p
+                aria-live="polite"
+                className="mx-auto mt-5 max-w-xl rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm"
+              >
                 お申し込み窓口は現在準備中です。公開後のお問い合わせ先をご確認ください。
               </p>
             ) : null}
@@ -451,7 +555,11 @@ const Footer = () => (
           <h2 className="font-tech text-xs font-bold tracking-widest text-white">MENU</h2>
           <nav aria-label="フッターナビゲーション" className="mt-4 flex flex-col gap-3">
             {navigation.map((item) => (
-              <a className="w-fit text-sm text-indigo-200 hover:text-white" href={item.href} key={item.href}>
+              <a
+                className="w-fit text-sm text-indigo-200 hover:text-white"
+                href={item.href}
+                key={item.href}
+              >
                 {item.label}
               </a>
             ))}
@@ -469,7 +577,9 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <p className="pt-7 text-center font-tech text-[0.68rem] tracking-wide text-indigo-300">© 2024 CODE QUEST. All rights reserved.</p>
+      <p className="pt-7 text-center font-tech text-[0.68rem] tracking-wide text-indigo-300">
+        © 2024 CODE QUEST. All rights reserved.
+      </p>
     </div>
   </footer>
 )
