@@ -217,7 +217,7 @@ const CoursesSection = () => (
         })}
         <Reveal className="h-full" delay={0.12}>
           <aside className="flex h-full min-h-72 flex-col items-center justify-center rounded-[28px] border-2 border-dashed border-brand-blue/30 bg-white/70 p-7 text-center">
-            <span className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-purple text-white shadow-lg">
+            <span className="grid size-14 place-items-center rounded-2xl bg-linear-to-br from-brand-blue to-brand-purple text-white shadow-lg">
               <Rocket aria-hidden="true" size={26} />
             </span>
             <h3 className="mt-5 font-heading text-xl font-bold text-ink">どのコースか迷ったら</h3>
@@ -238,13 +238,14 @@ const JourneySection = () => (
     <div className="page-container">
       <SectionHeading
         accent="CODE QUESTの学び方。"
+        breakBeforeAccent
         eyebrow="LEARNING JOURNEY"
         title="できた！が増える、"
       />
       <div className="relative">
         <div
           aria-hidden="true"
-          className="absolute left-[10%] right-[10%] top-12 hidden border-t-2 border-dashed border-indigo-200 tablet:block"
+          className="absolute left-1/10 right-1/10 top-12 hidden border-t-2 border-dashed border-indigo-200 tablet:block"
         />
         <ol className="relative grid gap-4 tablet:grid-cols-5 tablet:gap-0">
           {journey.map((item, index) => {
@@ -254,9 +255,9 @@ const JourneySection = () => (
             return (
               <li className="relative" key={item.step}>
                 <Reveal className="h-full" delay={index * 0.08}>
-                  <div className="flex h-full items-center gap-4 rounded-[24px] border border-indigo-100 bg-white p-4 text-left shadow-sm tablet:flex-col tablet:border-0 tablet:bg-transparent tablet:px-2 tablet:text-center tablet:shadow-none">
+                  <div className="flex h-full items-center gap-4 rounded-3xl border border-indigo-100 bg-white p-4 text-left shadow-sm tablet:flex-col tablet:border-0 tablet:bg-transparent tablet:px-2 tablet:text-center tablet:shadow-none">
                     <span
-                      className="relative z-10 grid size-20 shrink-0 place-items-center rounded-full border-[7px] border-white text-white shadow-lg"
+                      className="relative z-10 grid size-20 shrink-0 place-items-center rounded-full border-7 border-white text-white shadow-lg"
                       style={{ background: color }}
                     >
                       <Icon aria-hidden="true" size={26} />
@@ -311,7 +312,7 @@ const WorksSection = () => (
                 <h3 className="font-heading text-base font-bold text-ink">{work.title}</h3>
                 <p className="mt-1 text-xs text-slate-500">{work.author}</p>
                 <div className="mt-4 flex items-center justify-between gap-2">
-                  <span className="rounded-full bg-gradient-to-r from-brand-blue to-brand-purple px-3 py-1 font-tech text-[0.62rem] font-bold text-white">
+                  <span className="rounded-full bg-linear-to-r from-brand-blue to-brand-purple px-3 py-1 font-tech text-[0.62rem] font-bold text-white">
                     {work.course}
                   </span>
                   <span aria-label="5つ星" className="flex text-brand-yellow">
@@ -363,12 +364,12 @@ const ParentsSection = () => (
             key={skill}
           >
             <article
-              className="min-h-40 overflow-hidden rounded-[24px] border border-slate-200 bg-white bg-cover bg-right p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="min-h-40 overflow-hidden rounded-3xl border border-slate-200 bg-white bg-cover bg-right p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               style={{
                 backgroundImage: `linear-gradient(90deg, rgba(255,255,255,.98), rgba(255,255,255,.9) 58%, rgba(255,255,255,.18)), url(${skillImages[index]})`,
               }}
             >
-              <span className="inline-flex min-w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-purple px-2 py-2 font-tech text-xs font-bold text-white">
+              <span className="inline-flex min-w-9 items-center justify-center rounded-xl bg-linear-to-br from-brand-blue to-brand-purple px-2 py-2 font-tech text-xs font-bold text-white">
                 0{index + 1}
               </span>
               <h3 className="mt-4 font-heading font-bold text-ink">{skill}</h3>
@@ -397,7 +398,7 @@ const PricingSection = () => (
               className={`relative h-full rounded-[30px] p-7 tablet:p-9 ${price.featured ? 'border-2 border-brand-purple bg-indigo-50 shadow-[0_24px_70px_rgba(91,82,242,.2)]' : 'border-2 border-slate-200 bg-white shadow-lg'}`}
             >
               {price.featured ? (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-blue to-brand-purple px-5 py-2 font-tech text-xs font-bold text-white shadow-md">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-linear-to-r from-brand-blue to-brand-purple px-5 py-2 font-tech text-xs font-bold text-white shadow-md">
                   人気！
                 </span>
               ) : null}
@@ -500,7 +501,7 @@ const TrialSection = () => {
         <div className="trial-panel relative overflow-hidden rounded-[36px] px-6 py-14 text-center text-white tablet:px-12 tablet:py-20">
           <span
             aria-hidden="true"
-            className="absolute -left-10 -top-12 size-40 rounded-full border-[28px] border-white/10"
+            className="absolute -left-10 -top-12 size-40 rounded-full border-28 border-white/10"
           />
           <span
             aria-hidden="true"

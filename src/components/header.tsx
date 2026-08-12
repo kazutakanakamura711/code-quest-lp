@@ -57,7 +57,7 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-indigo-100/80 bg-white/90 backdrop-blur-xl">
-      <div className="page-container flex h-[72px] items-center justify-between gap-5">
+      <div className="page-container flex h-18 items-center justify-between gap-5">
         <Logo />
 
         <nav aria-label="メインナビゲーション" className="hidden items-center gap-6 desktop:flex">
@@ -93,7 +93,7 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
         <div
           aria-label="モバイルメニュー"
           aria-modal="true"
-          className="fixed inset-0 z-[60] bg-ink/30 backdrop-blur-sm desktop:hidden"
+          className="fixed inset-0 z-60 bg-ink/30 backdrop-blur-sm desktop:hidden"
           role="dialog"
         >
           <button
@@ -103,7 +103,7 @@ export const Header = ({ onMenuChange }: HeaderProps) => {
             type="button"
           />
           <div
-            className="absolute right-0 top-0 flex h-dvh w-[min(88vw,360px)] flex-col rounded-l-[32px] bg-white p-6 shadow-2xl"
+            className="absolute right-0 top-0 flex h-dvh w-[min(88vw,360px)] flex-col rounded-l-4xl bg-white p-6 shadow-2xl"
             id="mobile-menu"
             ref={dialogRef}
           >

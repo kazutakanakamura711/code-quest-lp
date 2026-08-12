@@ -17,7 +17,7 @@ describe('CODE QUEST LP', () => {
     expect(screen.getByText('Scratch Adventure')).toBeInTheDocument()
   })
 
-  it('keeps the Why and Courses headings on their intended two lines', () => {
+  it('keeps the Why, Courses, and Learning Journey headings on their intended two lines', () => {
     render(<App />)
 
     const whyHeading = screen.getByRole('heading', {
@@ -26,11 +26,16 @@ describe('CODE QUEST LP', () => {
     const coursesHeading = screen.getByRole('heading', {
       name: /好きから選べる、5つのコース。/,
     })
+    const journeyHeading = screen.getByRole('heading', {
+      name: /できた！が増える、CODE QUESTの学び方。/,
+    })
 
     expect(whyHeading.querySelectorAll('br')).toHaveLength(1)
     expect(coursesHeading.querySelectorAll('br')).toHaveLength(1)
+    expect(journeyHeading.querySelectorAll('br')).toHaveLength(1)
     expect(whyHeading.querySelector('.gradient-text')).toHaveTextContent('夢中になれる。')
     expect(coursesHeading.querySelector('.gradient-text')).toHaveTextContent('5つのコース。')
+    expect(journeyHeading.querySelector('.gradient-text')).toHaveTextContent('CODE QUESTの学び方。')
   })
 
   it('opens and closes a FAQ item using its button', async () => {

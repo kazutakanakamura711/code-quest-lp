@@ -21,7 +21,7 @@ export const Hero = () => (
   >
     <FloatingShape className="absolute left-[6%] top-28 size-5 rotate-12 rounded-md bg-brand-yellow/80" />
     <FloatingShape
-      className="absolute right-[8%] top-32 size-6 rounded-full border-[5px] border-brand-purple/50"
+      className="absolute right-[8%] top-32 size-6 rounded-full border-5 border-brand-purple/50"
       delay={0.5}
     />
     <FloatingShape
@@ -64,7 +64,7 @@ export const Hero = () => (
           <div aria-hidden="true" className="flex -space-x-2">
             {[Gamepad2, Terminal, CheckCircle2].map((Icon, index) => (
               <span
-                className="grid size-9 place-items-center rounded-full border-2 border-white bg-gradient-to-br from-blue-100 to-purple-100 text-brand-blue"
+                className="grid size-9 place-items-center rounded-full border-2 border-white bg-linear-to-br from-blue-100 to-purple-100 text-brand-blue"
                 key={index}
               >
                 <Icon size={16} />
@@ -83,11 +83,11 @@ export const Hero = () => (
       </div>
 
       <div className="relative z-10 mx-auto w-[min(100%,590px)]">
-        <div className="absolute -inset-5 -z-10 rotate-3 rounded-[40px] bg-gradient-to-br from-brand-purple/20 to-brand-blue/10" />
-        <div className="overflow-hidden rounded-[32px] border-4 border-white bg-white shadow-[0_30px_80px_rgba(91,82,242,0.22)]">
+        <div className="absolute -inset-5 -z-10 rotate-3 rounded-[40px] bg-linear-to-br from-brand-purple/20 to-brand-blue/10" />
+        <div className="overflow-hidden rounded-4xl border-4 border-white bg-white shadow-[0_30px_80px_rgba(91,82,242,0.22)]">
           <img
             alt="プログラミングを楽しむ子ども"
-            className="aspect-[4/3] h-auto w-full object-cover"
+            className="aspect-4/3 h-auto w-full object-cover"
             fetchPriority="high"
             height="525"
             src="/images/hero.jpg"

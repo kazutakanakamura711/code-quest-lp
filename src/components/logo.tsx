@@ -10,7 +10,7 @@ export const Logo = ({ inverse = false }: LogoProps) => (
   >
     <span
       aria-hidden="true"
-      className="grid size-10 place-items-center rounded-[13px] bg-gradient-to-br from-brand-blue via-brand-violet to-brand-purple text-sm font-extrabold text-white shadow-[0_7px_18px_rgba(91,82,242,0.3)]"
+      className="grid size-10 place-items-center rounded-[13px] bg-linear-to-br from-brand-blue via-brand-violet to-brand-purple text-sm font-extrabold text-white shadow-[0_7px_18px_rgba(91,82,242,0.3)]"
     >
       CQ
     </span>
